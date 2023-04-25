@@ -1,0 +1,141 @@
+
+
+
+<section style="margin-top: 10vh;" class="h-100 gradient-custom ">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-8">
+        <div class="card" style="border-radius: 10px;">
+          <div class="card-header px-4 py-5">
+            <h5 class="text-muted mb-0"> Hello...<span style="color: #b9148d;">{{username}}</span>!</h5>
+          </div>
+
+            <div class="d-flex justify-content-between mb-2 pt-2 pr-5">
+              <h5 class="text-muted mb-0 pl-3">SHIPPED TO</h5><br>
+             
+            </div>
+            <div class="d-flex justify-content-between  pr-5">
+              <p class="text-muted mb-0 pl-3">{{allorder.address.[0].name}}{{allorder.address.[0].lastname}}</p><br>
+            </div>
+            <div class="d-flex justify-content-between  pr-5">
+              <p class="text-muted mb-0 pl-3">{{allorder.address.[0].Mobile}}</p>
+            </div>
+            <div class="d-flex justify-content-between  pr-5">
+               <p class="text-muted mb-0 pl-3">{{allorder.address.[0].city}}</p><br>
+            </div>
+            <div class="d-flex justify-content-between  pr-5">
+              <p class="text-muted mb-0 pl-3">{{allorder.address.[0].state}}</p><br>
+            </div>
+            <div class="d-flex justify-content-between  pr-5">
+              <p class="text-muted mb-0 pl-3">{{allorder.address.[0].landmark}}</p><br>
+            </div>
+            <div class="d-flex justify-content-between  pr-5">
+            <p class="text-muted mb-0 pl-3">{{allorder.address.[0].pincode}}</p><br> 
+           </div>
+          <div class="card-body p-4">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+              <p class="lead fw-normal mb-0" style="color: #cf20a0;">Receipt</p>
+              <p class="small text-muted mb-0">Receipt Voucher : 1KAU9-84UIL</p>
+            </div>
+            <div class="card shadow-0 border mb-4">
+              <div class="card-body">
+
+           {{#each orderhistory}}
+ 
+                <div class="row">
+                  <div class="col-md-2">
+                    <img style="width: 15vw; height: 15vh;" src="/productImages/{{image.[0]}}"
+                      class="img-fluid" alt="Phone">
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+             
+                    <p class="text-muted mb-0">{{ name}}</p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    {{!-- <p class="text-muted mb-0 small">{{}}</p> --}}
+                  </div>
+                  {{!-- <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">Capacity: 64GB</p>
+                  </div> --}}
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">{{ quantity}}</p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small"></p>
+                  </div>
+                  <div class="col-md-2 text-center d-flex justify-content-center align-items-center">
+                    <p class="text-muted mb-0 small">{{ Tprice}}</p>
+                  </div>
+                </div>
+                <hr class="mb-4" style="background-color: #e0e0e0; opacity: 1;">
+              </div>
+
+            {{/each}}
+           
+            </div>
+            <div class="d-flex justify-content-between pt-2 pr-5">
+              <p class="fw-bold mb-0 pl-3">Order Details</p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">Total &nbsp; </span>  {{ allorder.totalAmount}}</p>
+            </div>
+
+            <div class="d-flex justify-content-between pt-2 pr-5">
+              <p class="text-muted mb-0 pl-3">Invoice Number :ikea{{allorder._id}}</p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">Discount</span> 00.00</p>
+            </div>
+
+            <div class="d-flex justify-content-between pr-5">
+              <p class="text-muted mb-0 pl-3">Invoice Date : 22 Dec,2019</p>
+              <p class="text-muted mb-0"><span class="fw-bold me-4">GST 0%</span> 00.00</p>
+            </div>
+
+            <div class="d-flex justify-content-between mb-5 pr-5">
+              <p class="text-muted mb-0 pl-3">Recepits Voucher : 18KU-62IIK</p>
+              <p class="text-muted mb-0 "><span class="fw-bold me-4">Delivery Charges</span> Free</p>
+            </div>
+              <p class="text-muted mb-0 text-danger"><span class="fw-bold me-4 text-danger">OrderStatus : </span> {{ allorder.orderStatus}}</p>
+              <p class="text-muted mb-0 text-danger"><span class="fw-bold me-4 text-danger">Create Date :</span> {{ allorder.createdAt}}</p>
+              <p class="text-muted mb-0 text-danger"><span class="fw-bold me-4 text-danger">updatedAt :</span> {{ allorder.updatedAt}}</p>
+
+          
+
+          </div>
+          <div class="card-footer border-0 px-4 py-5"
+            style="background-color:  #e9176b; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;">
+            <h5 class="d-flex align-items-center justify-content-end text-white text-uppercase mb-0">Total
+              paid : &nbsp; <span class="h2 mb-0 ms-2 pr-3"> {{  allorder.totalAmount}}</span></h5>
+          </div>
+         
+            {{!-- <a class="btn_1 checkout_btn_1 mt-5" href="/ordercancel?id={{allorder._id}}">cancel</a> --}}
+
+            {{!-- <a id="status" class="btn_1 checkout_btn_1 mt-5"onclick="cancelorder('{{allorder._id}}','{{allorder.orderStatus}}')">cancel</a> --}}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{{!-- <script>
+function cancelorder(proId, orderStatus) {
+  if (orderStatus === "cancelled" || orderStatus === "delivered") {
+    location.reload(); }
+    else{
+
+  $.ajax({
+    url: "/ordercancel",
+    data: { orderId:proId },
+    method: "post",
+    success: (response) => {
+    var content="cancelled"
+     // $(`#${id}value`).text("cancelled");
+     $('#status').html(content)
+      alert('cancelled')
+    },
+  });
+
+    }
+
+}
+
+</script> --}}
